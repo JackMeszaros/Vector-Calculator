@@ -23,34 +23,34 @@ namespace Vector_Calculator
             return $"<{x}, {y}, {z}>";
         }
 
-        public float GetMagnitude()
+        public double GetMagnitude()
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return Math.Sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
         }
 
-        public float GetDirection()
+        public double GetDirection()
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return Math.Atan(this.y / this.x);
         }
 
         public static Vector Add(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
-        }
-
-        public static Vector Negate(Vector v)
-        {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return new Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
         }
 
         public static Vector Subtract(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return new Vector(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
+        }
+
+        public static Vector Negate(Vector v2)
+        {
+            return new Vector(v2.x * -1, v2.y * -1, v2.z * -1);
+        }
+
+        public static Vector Negate1(Vector v1)
+        {
+            return new Vector(v1.x * -1, v1.y * -1, v1.z * -1);
         }
 
         public static Vector Scale(Vector v)
