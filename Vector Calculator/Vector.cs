@@ -23,9 +23,10 @@ namespace Vector_Calculator
             return $"<{x}, {y}, {z}>";
         }
 
-        public double GetMagnitude()
+        public float GetMagnitude()
         {
-            return Math.Sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+            float magnitude = MathF.Sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+            return magnitude;
         }
 
         public double GetDirection()
@@ -53,40 +54,56 @@ namespace Vector_Calculator
             return new Vector(v1.x * -1, v1.y * -1, v1.z * -1);
         }
 
-        public static Vector Scale(Vector v)
+        public static Vector Scale(Vector v1, float scalar)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return new Vector(v1.x * scalar, v1.y * scalar, v1.z * scalar);
         }
 
-        public static Vector Normalize(Vector v)
+        public static Vector Normalize(Vector v1)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float magnitude = v1.GetMagnitude();
+
+            return new Vector(v1.x / magnitude, v1.y / magnitude, v1.z / magnitude);
         }
 
         public static float DotProduct(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float magnitude = v1.GetMagnitude();
+            float magnitude2 = v2.GetMagnitude();
+
+            float step1 =(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+            float step2 = (step1 / (magnitude * magnitude2));
+            float step3 = (magnitude * magnitude2) * step2;
+            return (float) step3;
         }
 
         public static Vector CrossProduct(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float Cx = ((v1.y * v2.z) - (v1.z * v2.y));
+            float Cy = ((v1.z * v2.x) - (v1.x * v2.z));
+            float Cz = ((v1.x * v2.y) - (v1.y * v2.x));
+            return new Vector(Cx, Cy, Cz);
         }
 
-        public static Vector AngleBetween(Vector v1, Vector v2)
+        public static float AngleBetween(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float magnitude = v1.GetMagnitude();
+            float magnitude2 = v2.GetMagnitude();
+            float DP = DotProduct(v1,v2);
+
+            return (float) (Math.Acos((DP / (magnitude * magnitude2))) * (180 / Math.PI));
         }
 
         public static Vector ProjectOnto(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float magnitude = v1.GetMagnitude();
+            float magnitude2 = v2.GetMagnitude();
+            float DP = DotProduct(v1, v2);
+
+            return new Vector (
+                v2.x * (DP / (magnitude2 * magnitude2)), 
+                v2.y * (DP / (magnitude2 * magnitude2)), 
+                v2.z * (DP / (magnitude2 * magnitude2)));
         }
     }
 }
