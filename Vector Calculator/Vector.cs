@@ -76,6 +76,7 @@ namespace Vector_Calculator
             float step3 = (magnitude * magnitude2) * step2;
             return (float) step3;
         }
+        // :(
 
         public static Vector CrossProduct(Vector v1, Vector v2)
         {

@@ -7,8 +7,8 @@ namespace Vector_Calculator
         static void Main(string[] args)
         {
             float ez = 3;
-            Vector test1 = new Vector(4, 1, 3);
-            Vector test2 = new Vector(-3, 2, -5);
+            Vector test1 = new Vector(2, 5, 10);
+            Vector test2 = new Vector(3, 7, 9);
             
             Console.WriteLine("test1 magnitude: " + test1.GetMagnitude());
             Console.WriteLine("test2 magnitude: " + test2.GetMagnitude());
